@@ -59,11 +59,11 @@ public class Usuario {
         this.nUsuario = nUsuario;
     }
     
-    //Método
-        public void saludarUsuario() {
+    //Método #1
+        public void saludarPersona() {
             System.out.println("Bienvenido a Pizzeria Mix&Try");
 }
-    //Método    
+    //Método #2   
         public void verificarNombre(){
             Scanner entrada = new Scanner(System.in);
             String nombreIngresado;
@@ -71,7 +71,7 @@ public class Usuario {
             String regex = "^[A-Z][a-z]+$";
 
             do{
-            System.out.println("Ingrese su nombre (ej: Tomas");
+            System.out.println("Ingrese su nombre (ej: Tomas)");
             nombreIngresado = entrada.nextLine();
             
             //Verificación del nombre
@@ -85,7 +85,30 @@ public class Usuario {
             }
             } while (!valido);
         }
-        //Método     
+    //Método #3    
+        public void verificarApellido(){
+            Scanner entrada = new Scanner(System.in);
+            String apellidoIngresado;
+            boolean valido = false;
+            String regex = "^[A-Z][a-z]+$";
+
+            do{
+            System.out.println("Ingrese su apellido (ej: Tomantinni)");
+            apellidoIngresado = entrada.nextLine();
+            
+            //Verificación del apellido
+            if (apellidoIngresado.matches(regex)){
+                this.apellido = apellidoIngresado;
+                System.out.println("Nombre ingresado: " + apellidoIngresado);
+                valido = true;
+                
+            }else{
+                System.out.println("Ingrese nuevamente su nombre. Debe comenzar con mayúscula");
+            }
+            } while (!valido);
+        }
+        
+    //Método #4     
         public void verificarDni(){
             Scanner entrada = new Scanner(System.in);
             String dniIngresado;
@@ -108,5 +131,31 @@ public class Usuario {
             }while (!valido);
             
             }
+    //Método #5 
+        public void solicitarTelefono(){
+            Scanner entrada = new Scanner(System.in);
+            String telfIngresado;
+            boolean valido = false;
+            String regex = "^\\d{9}$";
+
+            do{
+            System.out.println("Ingrese su teléfono");
+            telfIngresado = entrada.nextLine();
+            
+            //Verificación del teléfono
+            if (telfIngresado.matches(regex)){
+                this.telefono = telfIngresado;
+                System.out.println("Telefono ingresado: +51 " + telfIngresado);
+                valido = true;
+                
+            }else{
+                System.out.println("Ingrese nuevamente su teléfono. Debe tener 9 dígitos");
+            }
+            } while (!valido);
+            }
+        
+        
+        
+        
         }
       
