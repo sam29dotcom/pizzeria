@@ -1,26 +1,29 @@
 package tf_grupo08;
+
+import java.util.Scanner;
+
+//Declarando atributos
 public class Usuario {
-    private int dni;
+    private String dni;
     private String nombre;
     private String apellido;
-    private String domicilio;
     private String telefono;
     private String nUsuario;
 
-    public Usuario(int dni, String nombre, String apellido, String domicilio, String telefono, String nUsuario) {
+//Constructor con parámetros
+    public Usuario(String dni, String nombre, String apellido, String telefono, String nUsuario) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.domicilio = domicilio;
         this.telefono = telefono;
         this.nUsuario = nUsuario;
     }
-
-    public int getDni() {
+    //Getters and Setters
+    public String getDni() {
         return dni;
     }
 
-    public void setDni(int dni) {
+    public void setDni(String dni) {
         this.dni = dni;
     }
 
@@ -38,14 +41,6 @@ public class Usuario {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
-    }
-
-    public String getDomicilio() {
-        return domicilio;
-    }
-
-    public void setDomicilio(String domicilio) {
-        this.domicilio = domicilio;
     }
 
     public String getTelefono() {
@@ -70,8 +65,48 @@ public class Usuario {
 }
     //Método    
         public void verificarNombre(){
-        
-        
-        
+            Scanner entrada = new Scanner(System.in);
+            String nombreIngresado;
+            boolean valido = false;
+            String regex = "^[A-Z][a-z]+$";
+
+            do{
+            System.out.println("Ingrese su nombre (ej: Tomas");
+            nombreIngresado = entrada.nextLine();
+            
+            //Verificación del nombre
+            if (nombreIngresado.matches(regex)){
+                this.nombre = nombreIngresado;
+                System.out.println("Nombre ingresado: " + nombreIngresado);
+                valido = true;
+                
+            }else{
+                System.out.println("Ingrese nuevamente su nombre. Debe comenzar con mayúscula");
+            }
+            } while (!valido);
         }
-}
+        //Método     
+        public void verificarDni(){
+            Scanner entrada = new Scanner(System.in);
+            String dniIngresado;
+            boolean valido = false;
+            String regex = "^\\d{7}$";
+            
+            do{
+            System.out.println("Ingrese su DNI: ");
+            dniIngresado = entrada.nextLine();
+      
+            //Verificación de DNI
+            if (dniIngresado.matches(regex)){
+                this.dni = dniIngresado;
+                System.out.println("DNI ingresado: " + dniIngresado);
+                valido = true;
+                
+            }else{
+                System.out.println("Ingrese un DNI válido");
+            }
+            }while (!valido);
+            
+            }
+        }
+      
