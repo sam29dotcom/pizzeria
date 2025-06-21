@@ -18,7 +18,7 @@ public class Usuario {
         this.telefono = telefono;
         this.nUsuario = nUsuario;
     }
-    //Getters and Setters
+//Getters and Setters
     public String getDni() {
         return dni;
     }
@@ -59,11 +59,11 @@ public class Usuario {
         this.nUsuario = nUsuario;
     }
     
-    //Método #1
+//Método #1
         public void saludarPersona() {
             System.out.println("Bienvenido a Pizzeria Mix&Try");
 }
-    //Método #2   
+//Método #2   
         public void verificarNombre(){
             Scanner entrada = new Scanner(System.in);
             String nombreIngresado;
@@ -85,7 +85,7 @@ public class Usuario {
             }
             } while (!valido);
         }
-    //Método #3    
+//Método #3    
         public void verificarApellido(){
             Scanner entrada = new Scanner(System.in);
             String apellidoIngresado;
@@ -103,12 +103,12 @@ public class Usuario {
                 valido = true;
                 
             }else{
-                System.out.println("Ingrese nuevamente su nombre. Debe comenzar con mayúscula");
+                System.out.println("Ingrese nuevamente su apellido. Debe comenzar con mayúscula");
             }
             } while (!valido);
         }
         
-    //Método #4     
+//Método #4     
         public void verificarDni(){
             Scanner entrada = new Scanner(System.in);
             String dniIngresado;
@@ -130,8 +130,8 @@ public class Usuario {
             }
             }while (!valido);
             
-            }
-    //Método #5 
+        }
+//Método #5 
         public void solicitarTelefono(){
             Scanner entrada = new Scanner(System.in);
             String telfIngresado;
@@ -152,10 +152,26 @@ public class Usuario {
                 System.out.println("Ingrese nuevamente su teléfono. Debe tener 9 dígitos");
             }
             } while (!valido);
-            }
-        
-        
-        
-        
         }
+//Método #6     
+        public void crearUsuario(){
+            String usNombre = (this.nombre).substring(0,1);
+            String usApellido = (this.apellido).substring(0,1);
+            String usDni = (this.dni).substring((this.dni).length()-2);
+            String usTelefono = (this.telefono).substring((this.telefono).length()-2);
+            this.nUsuario = (usNombre + usApellido + usDni + usTelefono).toUpperCase();
+        }
+        
+//Método #7
+        public void registroUsuario(){
+            System.out.println("*****      REGISTRO DE USUARIO      *****");
+            saludarPersona();
+            verificarNombre();
+            verificarApellido();
+            verificarDni();
+            solicitarTelefono();
+            crearUsuario();
+            System.out.println("***** REGISTRO COMPLETADO CON ÉXITO *****");
+        }
+    }
       
