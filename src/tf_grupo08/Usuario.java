@@ -4,12 +4,24 @@ import java.util.Scanner;
 
 //Declarando atributos
 public class Usuario {
-    private String dni;
-    private String nombre;
-    private String apellido;
-    private String telefono;
+    public String dni;
+    public String nombre;
+    public String apellido;
+    public String telefono;
     private String nUsuario;
 
+//Constructor vacío para herencia    
+    public Usuario() {
+    }
+
+//Constructor c/sobrecarga
+    public Usuario(String dni, String nombre, String apellido, String telefono) {
+        this.dni = dni;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+    }
+    
 //Constructor con parámetros
     public Usuario(String dni, String nombre, String apellido, String telefono, String nUsuario) {
         this.dni = dni;
