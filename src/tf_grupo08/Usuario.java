@@ -125,7 +125,7 @@ public class Usuario {
             Scanner entrada = new Scanner(System.in);
             String dniIngresado;
             boolean valido = false;
-            String regex = "^\\d{7}$";
+            String regex = "^\\d{8}$";
             
             do{
             System.out.println("Ingrese su DNI: ");
