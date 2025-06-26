@@ -176,7 +176,7 @@ public class Usuario {
         
 //Método #7
         public void registroUsuario(){
-            System.out.println("*****      REGISTRO DE USUARIO      *****");
+            System.out.println("****      REGISTRO DE USUARIO      *****");
             saludarPersona();
             verificarNombre();
             verificarApellido();
