@@ -111,7 +111,7 @@ public class Usuario {
             //Verificación del apellido
             if (apellidoIngresado.matches(regex)){
                 this.apellido = apellidoIngresado;
-                System.out.println("Nombre ingresado: " + apellidoIngresado);
+                System.out.println("Apellido ingresado: " + apellidoIngresado);
                 valido = true;
                 
             }else{
