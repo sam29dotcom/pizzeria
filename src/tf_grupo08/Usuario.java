@@ -4,11 +4,13 @@ import java.util.Scanner;
 
 //Declarando atributos
 public class Usuario {
-    public String dni;
-    public String nombre;
-    public String apellido;
-    public String telefono;
-    private String nUsuario;
+
+    // CORREGIDO: Todos los atributos ahora son privados para proteger los datos
+    private String dni;      // Cambiado de public a private
+    private String nombre;   // Cambiado de public a private
+    private String apellido; // Cambiado de public a private
+    private String telefono; // Cambiado de public a private
+    private String nUsuario; // Ya estaba correcto
 
 //Constructor vacío para herencia    
     public Usuario() {
@@ -21,7 +23,7 @@ public class Usuario {
         this.apellido = apellido;
         this.telefono = telefono;
     }
-    
+
 //Constructor con parámetros
     public Usuario(String dni, String nombre, String apellido, String telefono, String nUsuario) {
         this.dni = dni;
@@ -31,6 +33,7 @@ public class Usuario {
         this.nUsuario = nUsuario;
     }
 //Getters and Setters
+
     public String getDni() {
         return dni;
     }
@@ -70,120 +73,141 @@ public class Usuario {
     public void setnUsuario(String nUsuario) {
         this.nUsuario = nUsuario;
     }
-    
-//Método #1
-        public void saludarPersona() {
-            System.out.println("Bienvenido a Pizzeria Mix&Try");
-}
-//Método #2   
-        public void verificarNombre(){
-            Scanner entrada = new Scanner(System.in);
-            String nombreIngresado;
-            boolean valido = false;
-            String regex = "^[A-Z][a-z]+$";
 
-            do{
+//Método #1
+    public void saludarPersona() {
+        System.out.println("Bienvenido a Pizzeria Mix&Try");
+    }
+//Método #2   
+
+    public void verificarNombre() {
+        Scanner entrada = new Scanner(System.in);
+        String nombreIngresado;
+        boolean valido = false;
+        String regex = "^[A-Z][a-z]+$";
+
+        do {
             System.out.println("Ingrese su nombre (ej: Tomas)");
             nombreIngresado = entrada.nextLine();
-            
+
             //Verificación del nombre
-            if (nombreIngresado.matches(regex)){
+            if (nombreIngresado.matches(regex)) {
                 this.nombre = nombreIngresado;
                 System.out.println("Nombre ingresado: " + nombreIngresado);
                 valido = true;
-                
-            }else{
+
+            } else {
                 System.out.println("Ingrese nuevamente su nombre. Debe comenzar con mayúscula");
             }
-            } while (!valido);
-        }
+        } while (!valido);
+    }
 //Método #3    
-        public void verificarApellido(){
-            Scanner entrada = new Scanner(System.in);
-            String apellidoIngresado;
-            boolean valido = false;
-            String regex = "^[A-Z][a-z]+$";
 
-            do{
+    public void verificarApellido() {
+        Scanner entrada = new Scanner(System.in);
+        String apellidoIngresado;
+        boolean valido = false;
+        String regex = "^[A-Z][a-z]+$";
+
+        do {
             System.out.println("Ingrese su apellido (ej: Tomantinni)");
             apellidoIngresado = entrada.nextLine();
-            
+
             //Verificación del apellido
-            if (apellidoIngresado.matches(regex)){
+            if (apellidoIngresado.matches(regex)) {
                 this.apellido = apellidoIngresado;
                 System.out.println("Apellido ingresado: " + apellidoIngresado);
                 valido = true;
-                
-            }else{
+
+            } else {
                 System.out.println("Ingrese nuevamente su apellido. Debe comenzar con mayúscula");
             }
-            } while (!valido);
-        }
-        
+        } while (!valido);
+    }
+
 //Método #4     
-        public void verificarDni(){
-            Scanner entrada = new Scanner(System.in);
-            String dniIngresado;
-            boolean valido = false;
-            String regex = "^\\d{8}$";
-            
-            do{
+    public void verificarDni() {
+        Scanner entrada = new Scanner(System.in);
+        String dniIngresado;
+        boolean valido = false;
+        String regex = "^\\d{8}$";
+
+        do {
             System.out.println("Ingrese su DNI: ");
             dniIngresado = entrada.nextLine();
-      
+
             //Verificación de DNI
-            if (dniIngresado.matches(regex)){
+            if (dniIngresado.matches(regex)) {
                 this.dni = dniIngresado;
                 System.out.println("DNI ingresado: " + dniIngresado);
                 valido = true;
-                
-            }else{
+
+            } else {
                 System.out.println("Ingrese un DNI válido");
             }
-            }while (!valido);
-            
-        }
-//Método #5 
-        public void solicitarTelefono(){
-            Scanner entrada = new Scanner(System.in);
-            String telfIngresado;
-            boolean valido = false;
-            String regex = "^\\d{9}$";
+        } while (!valido);
 
-            do{
+    }
+//Método #5 
+
+    public void solicitarTelefono() {
+        Scanner entrada = new Scanner(System.in);
+        String telfIngresado;
+        boolean valido = false;
+        String regex = "^\\d{9}$";
+
+        do {
             System.out.println("Ingrese su teléfono");
             telfIngresado = entrada.nextLine();
-            
+
             //Verificación del teléfono
-            if (telfIngresado.matches(regex)){
+            if (telfIngresado.matches(regex)) {
                 this.telefono = telfIngresado;
                 System.out.println("Telefono ingresado: +51 " + telfIngresado);
                 valido = true;
-                
-            }else{
+
+            } else {
                 System.out.println("Ingrese nuevamente su teléfono. Debe tener 9 dígitos");
             }
-            } while (!valido);
-        }
-//Método #6     
-        public void crearUsuario(){
-            String usNombre = (this.nombre).substring(0,1);
-            String usApellido = (this.apellido).substring(0,1);
-            String usDni = (this.dni).substring((this.dni).length()-2);
-            String usTelefono = (this.telefono).substring((this.telefono).length()-2);
-            this.nUsuario = (usNombre + usApellido + usDni + usTelefono).toUpperCase();
-        }
-        
-//Método #7
-        public void registroUsuario(){
-            System.out.println("****      REGISTRO DE USUARIO      *****");
-            saludarPersona();
-            verificarNombre();
-            verificarApellido();
-            verificarDni();
-            solicitarTelefono();
-            crearUsuario();
-            System.out.println("***** REGISTRO COMPLETADO CON ÉXITO *****");
-        }
+        } while (!valido);
     }
-      
+//Método #6     
+
+    public void crearUsuario() {
+        String usNombre = (this.nombre).substring(0, 1);
+        String usApellido = (this.apellido).substring(0, 1);
+        String usDni = (this.dni).substring((this.dni).length() - 2);
+        String usTelefono = (this.telefono).substring((this.telefono).length() - 2);
+        this.nUsuario = (usNombre + usApellido + usDni + usTelefono).toUpperCase();
+    }
+
+//Método #7 - CORREGIDO: Ahora muestra todos los datos recolectados
+    public void registroUsuario() {
+        System.out.println("****      REGISTRO DE USUARIO      *****");
+        saludarPersona();
+
+        // Crear el nombre de usuario con los datos ingresados
+        crearUsuario();
+
+        // Mostrar resumen completo de todos los datos del usuario
+        mostrarResumenUsuario();
+
+        System.out.println("***** REGISTRO COMPLETADO CON ÉXITO *****");
+    }
+
+//Método #8 - NUEVO: Mostrar resumen completo de datos del usuario
+    public void mostrarResumenUsuario() {
+        System.out.println("");
+        System.out.println("===========================================");
+        System.out.println("        RESUMEN DE TUS DATOS              ");
+        System.out.println("===========================================");
+        System.out.println("Nombre completo: " + this.nombre + " " + this.apellido);  // Mostrar nombre y apellido
+        System.out.println("DNI: " + this.dni);                                       // Mostrar DNI ingresado
+        System.out.println("Teléfono: +51 " + this.telefono);                        // Mostrar teléfono con código de país
+        System.out.println("Usuario generado: " + this.nUsuario);                    // Mostrar el código de usuario creado
+        System.out.println("===========================================");
+        System.out.println("¡Tus datos han sido registrados correctamente!");
+        System.out.println("===========================================");
+        System.out.println("");
+    }
+}
