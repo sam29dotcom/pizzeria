@@ -88,7 +88,9 @@ public class Menu {
             System.out.println("3. Familiar");     // Opción 3
             System.out.print("Ingrese su opción (1-3): ");
             
-            // Verificar si el usuario ingresó un número
+            // hasNextInt() revisa si lo que escribió el usuario es un número
+            // Si el usuario escribió un número, devuelve true
+            // Si el usuario escribió letras o símbolos, devuelve false
             if (entrada.hasNextInt()) {
                 opcion = entrada.nextInt();        // Leer el número ingresado
                 
@@ -112,8 +114,9 @@ public class Menu {
                     default -> System.out.println("Error: Ingrese una opción válida (1, 2 o 3)");
                 }
             } else {
+                // Si lo que escribió NO es un número, mostrar error
                 System.out.println("Error: Debe ingresar un número");
-                entrada.next(); // Limpiar el buffer de entrada
+                entrada.next(); // Limpiar lo que escribió para evitar problemas
             }
             System.out.println(""); // Línea en blanco para mejor presentación
         } while (!valido); // Continuar mientras no sea válido
@@ -133,7 +136,9 @@ public class Menu {
             System.out.println("3. Mucho queso");    // Opción 3
             System.out.print("Ingrese su opción (1-3): ");
             
-            // Verificar si el usuario ingresó un número
+            // hasNextInt() revisa si lo que escribió el usuario es un número
+            // Si el usuario escribió un número, devuelve true
+            // Si el usuario escribió letras o símbolos, devuelve false
             if (entrada.hasNextInt()) {
                 opcion = entrada.nextInt();          // Leer el número ingresado
                 
@@ -157,8 +162,9 @@ public class Menu {
                     default -> System.out.println("Error: Ingrese una opción válida (1, 2 o 3)");
                 }
             } else {
+                // Si lo que escribió NO es un número, mostrar error
                 System.out.println("Error: Debe ingresar un número");
-                entrada.next(); // Limpiar el buffer de entrada
+                entrada.next(); // Limpiar lo que escribió para evitar problemas
             }
             System.out.println(""); // Línea en blanco para mejor presentación
         } while (!valido); // Continuar mientras no sea válido
@@ -177,7 +183,9 @@ public class Menu {
             System.out.println("2. Salsa BBQ");                // Opción 2
             System.out.print("Ingrese su opción (1-2): ");
             
-            // Verificar si el usuario ingresó un número
+            // hasNextInt() revisa si lo que escribió el usuario es un número
+            // Si el usuario escribió un número, devuelve true
+            // Si el usuario escribió letras o símbolos, devuelve false
             if (entrada.hasNextInt()) {
                 opcion = entrada.nextInt();                     // Leer el número ingresado
                 
@@ -196,8 +204,9 @@ public class Menu {
                     default -> System.out.println("Error: Ingrese una opción válida (1 o 2)");
                 }
             } else {
+                // Si lo que escribió NO es un número, mostrar error
                 System.out.println("Error: Debe ingresar un número");
-                entrada.next(); // Limpiar el buffer de entrada
+                entrada.next(); // Limpiar lo que escribió para evitar problemas
             }
             System.out.println(""); // Línea en blanco para mejor presentación
         } while (!valido); // Continuar mientras no sea válido
@@ -217,7 +226,9 @@ public class Menu {
             System.out.println("3. Mucha salsa");     // Opción 3
             System.out.print("Ingrese su opción (1-3): ");
             
-            // Verificar si el usuario ingresó un número
+            // hasNextInt() revisa si lo que escribió el usuario es un número
+            // Si el usuario escribió un número, devuelve true
+            // Si el usuario escribió letras o símbolos, devuelve false
             if (entrada.hasNextInt()) {
                 opcion = entrada.nextInt();           // Leer el número ingresado
                 
@@ -241,8 +252,9 @@ public class Menu {
                     default -> System.out.println("Error: Ingrese una opción válida (1, 2 o 3)");
                 }
             } else {
+                // Si lo que escribió NO es un número, mostrar error
                 System.out.println("Error: Debe ingresar un número");
-                entrada.next(); // Limpiar el buffer de entrada
+                entrada.next(); // Limpiar lo que escribió para evitar problemas
             }
             System.out.println(""); // Línea en blanco para mejor presentación
         } while (!valido); // Continuar mientras no sea válido
