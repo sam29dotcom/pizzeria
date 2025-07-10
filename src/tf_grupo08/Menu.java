@@ -10,7 +10,7 @@ public class Menu {
     private String queso;         // Almacena la cantidad de queso elegida
     private String salsa;         // Almacena el tipo de salsa elegida
     private String cantidadSalsa; // Almacena la cantidad de salsa elegida
-    
+
     // NUEVOS ATRIBUTOS para las bebidas
     private boolean deseaBebida;  // Almacena si el usuario quiere bebida (true = sí, false = no)
     private String tipoBebida;    // Almacena el tipo de bebida elegida (Coca-Cola, Inka Kola, Fanta)
@@ -33,7 +33,7 @@ public class Menu {
         this.queso = queso;             // Asigna el queso recibido
         this.salsa = salsa;             // Asigna la salsa recibida
         this.cantidadSalsa = cantidadSalsa; // Asigna la cantidad de salsa recibida
-        
+
         // Inicializar los nuevos atributos con valores por defecto
         this.deseaBebida = false;
         this.tipoBebida = "";
@@ -137,13 +137,13 @@ public class Menu {
             System.out.println("2. Grande");       // Opción 2
             System.out.println("3. Familiar");     // Opción 3
             System.out.print("Ingrese su opción (1-3): ");
-            
+
             // hasNextInt() revisa si lo que escribió el usuario es un número
             // Si el usuario escribió un número, devuelve true
             // Si el usuario escribió letras o símbolos, devuelve false
             if (entrada.hasNextInt()) {
                 opcion = entrada.nextInt();        // Leer el número ingresado
-                
+
                 // Evaluar la opción elegida
                 switch (opcion) {
                     case 1 -> {
@@ -161,7 +161,8 @@ public class Menu {
                         System.out.println("Has elegido: Pizza Familiar");
                         valido = true;             // Marcar como válido para salir del bucle
                     }
-                    default -> System.out.println("Error: Ingrese una opción válida (1, 2 o 3)");
+                    default ->
+                        System.out.println("Error: Ingrese una opción válida (1, 2 o 3)");
                 }
             } else {
                 // Si lo que escribió NO es un número, mostrar error
@@ -185,13 +186,13 @@ public class Menu {
             System.out.println("2. Queso normal");   // Opción 2
             System.out.println("3. Mucho queso");    // Opción 3
             System.out.print("Ingrese su opción (1-3): ");
-            
+
             // hasNextInt() revisa si lo que escribió el usuario es un número
             // Si el usuario escribió un número, devuelve true
             // Si el usuario escribió letras o símbolos, devuelve false
             if (entrada.hasNextInt()) {
                 opcion = entrada.nextInt();          // Leer el número ingresado
-                
+
                 // Evaluar la opción elegida
                 switch (opcion) {
                     case 1 -> {
@@ -209,7 +210,8 @@ public class Menu {
                         System.out.println("Has elegido: Mucho queso");
                         valido = true;               // Marcar como válido para salir del bucle
                     }
-                    default -> System.out.println("Error: Ingrese una opción válida (1, 2 o 3)");
+                    default ->
+                        System.out.println("Error: Ingrese una opción válida (1, 2 o 3)");
                 }
             } else {
                 // Si lo que escribió NO es un número, mostrar error
@@ -232,13 +234,13 @@ public class Menu {
             System.out.println("1. Salsa de tomate natural");  // Opción 1
             System.out.println("2. Salsa BBQ");                // Opción 2
             System.out.print("Ingrese su opción (1-2): ");
-            
+
             // hasNextInt() revisa si lo que escribió el usuario es un número
             // Si el usuario escribió un número, devuelve true
             // Si el usuario escribió letras o símbolos, devuelve false
             if (entrada.hasNextInt()) {
                 opcion = entrada.nextInt();                     // Leer el número ingresado
-                
+
                 // Evaluar la opción elegida
                 switch (opcion) {
                     case 1 -> {
@@ -251,7 +253,8 @@ public class Menu {
                         System.out.println("Has elegido: Salsa BBQ");
                         valido = true;                          // Marcar como válido para salir del bucle
                     }
-                    default -> System.out.println("Error: Ingrese una opción válida (1 o 2)");
+                    default ->
+                        System.out.println("Error: Ingrese una opción válida (1 o 2)");
                 }
             } else {
                 // Si lo que escribió NO es un número, mostrar error
@@ -275,13 +278,13 @@ public class Menu {
             System.out.println("2. Salsa normal");    // Opción 2
             System.out.println("3. Mucha salsa");     // Opción 3
             System.out.print("Ingrese su opción (1-3): ");
-            
+
             // hasNextInt() revisa si lo que escribió el usuario es un número
             // Si el usuario escribió un número, devuelve true
             // Si el usuario escribió letras o símbolos, devuelve false
             if (entrada.hasNextInt()) {
                 opcion = entrada.nextInt();           // Leer el número ingresado
-                
+
                 // Evaluar la opción elegida
                 switch (opcion) {
                     case 1 -> {
@@ -299,7 +302,8 @@ public class Menu {
                         System.out.println("Has elegido: Mucha salsa");
                         valido = true;                // Marcar como válido para salir del bucle
                     }
-                    default -> System.out.println("Error: Ingrese una opción válida (1, 2 o 3)");
+                    default ->
+                        System.out.println("Error: Ingrese una opción válida (1, 2 o 3)");
                 }
             } else {
                 // Si lo que escribió NO es un número, mostrar error
@@ -311,7 +315,6 @@ public class Menu {
     }
 
     // ***** NUEVOS MÉTODOS PARA LA FUNCIONALIDAD DE BEBIDAS *****
-
     // Método para preguntar si el usuario desea alguna bebida
     public void preguntarSiDeseaBebida() {
         Scanner entrada = new Scanner(System.in);  // Crear objeto Scanner para leer entrada
@@ -324,11 +327,11 @@ public class Menu {
             System.out.println("1. Sí");         // Opción 1 - Sí quiere bebida
             System.out.println("2. No");         // Opción 2 - No quiere bebida
             System.out.print("Ingrese su opción (1-2): ");
-            
+
             // hasNextInt() revisa si lo que escribió el usuario es un número
             if (entrada.hasNextInt()) {
                 opcion = entrada.nextInt();       // Leer el número ingresado
-                
+
                 // Evaluar la opción elegida
                 switch (opcion) {
                     case 1 -> {
@@ -341,7 +344,8 @@ public class Menu {
                         System.out.println("De acuerdo, solo será la pizza");
                         valido = true;            // Marcar como válido para salir del bucle
                     }
-                    default -> System.out.println("Error: Ingrese una opción válida (1 o 2)");
+                    default ->
+                        System.out.println("Error: Ingrese una opción válida (1 o 2)");
                 }
             } else {
                 // Si lo que escribió NO es un número, mostrar error
@@ -365,11 +369,11 @@ public class Menu {
             System.out.println("2. Inka Kola");     // Opción 2
             System.out.println("3. Fanta");         // Opción 3
             System.out.print("Ingrese su opción (1-3): ");
-            
+
             // hasNextInt() revisa si lo que escribió el usuario es un número
             if (entrada.hasNextInt()) {
                 opcion = entrada.nextInt();          // Leer el número ingresado
-                
+
                 // Evaluar la opción elegida
                 switch (opcion) {
                     case 1 -> {
@@ -387,7 +391,8 @@ public class Menu {
                         System.out.println("Has elegido: Fanta");
                         valido = true;                  // Marcar como válido para salir del bucle
                     }
-                    default -> System.out.println("Error: Ingrese una opción válida (1, 2 o 3)");
+                    default ->
+                        System.out.println("Error: Ingrese una opción válida (1, 2 o 3)");
                 }
             } else {
                 // Si lo que escribió NO es un número, mostrar error
@@ -412,11 +417,11 @@ public class Menu {
             System.out.println("3. 2 litros");      // Opción 3
             System.out.println("4. 3 litros");      // Opción 4
             System.out.print("Ingrese su opción (1-4): ");
-            
+
             // hasNextInt() revisa si lo que escribió el usuario es un número
             if (entrada.hasNextInt()) {
                 opcion = entrada.nextInt();          // Leer el número ingresado
-                
+
                 // Evaluar la opción elegida
                 switch (opcion) {
                     case 1 -> {
@@ -439,7 +444,8 @@ public class Menu {
                         System.out.println("Has elegido: 3 litros");
                         valido = true;                   // Marcar como válido para salir del bucle
                     }
-                    default -> System.out.println("Error: Ingrese una opción válida (1, 2, 3 o 4)");
+                    default ->
+                        System.out.println("Error: Ingrese una opción válida (1, 2, 3 o 4)");
                 }
             } else {
                 // Si lo que escribió NO es un número, mostrar error
@@ -462,11 +468,11 @@ public class Menu {
             System.out.println("1. Sí");         // Opción 1 - Sí quiere hielo
             System.out.println("2. No");         // Opción 2 - No quiere hielo
             System.out.print("Ingrese su opción (1-2): ");
-            
+
             // hasNextInt() revisa si lo que escribió el usuario es un número
             if (entrada.hasNextInt()) {
                 opcion = entrada.nextInt();       // Leer el número ingresado
-                
+
                 // Evaluar la opción elegida
                 switch (opcion) {
                     case 1 -> {
@@ -479,7 +485,8 @@ public class Menu {
                         System.out.println("De acuerdo, su bebida será servida sin hielo");
                         valido = true;            // Marcar como válido para salir del bucle
                     }
-                    default -> System.out.println("Error: Ingrese una opción válida (1 o 2)");
+                    default ->
+                        System.out.println("Error: Ingrese una opción válida (1 o 2)");
                 }
             } else {
                 // Si lo que escribió NO es un número, mostrar error
@@ -490,6 +497,71 @@ public class Menu {
         } while (!valido); // Continuar mientras no sea válido
     }
 
+    public boolean preguntarNuevoPedido() {
+        Scanner entrada = new Scanner(System.in);
+        int opcion;
+        boolean valido = false;
+        boolean nuevoPedido = false;
+
+        do {
+            System.out.println("--- ¿QUIERES HACER UN NUEVO PEDIDO? ---");
+            System.out.println("1. Sí");
+            System.out.println("2. No");
+            System.out.print("Ingrese su opción (1-2): ");
+
+            if (entrada.hasNextInt()) {
+                opcion = entrada.nextInt();
+
+                switch (opcion) {
+                    case 1 -> {
+                        nuevoPedido = true;
+                        System.out.println("¡Perfecto! Vamos a crear un nuevo pedido");
+                        valido = true;
+                    }
+                    case 2 -> {
+                        nuevoPedido = false;
+                        System.out.println("¡Gracias por tu compra! ¡Hasta pronto!");
+                        valido = true;
+                    }
+                    default ->
+                        System.out.println("Error: Ingrese una opción válida (1 o 2)");
+                }
+            } else {
+                System.out.println("Error: Debe ingresar un número");
+                entrada.next();
+            }
+            System.out.println("");
+        } while (!valido);
+
+        return nuevoPedido;
+    }
+
+    public void reiniciarPedido() {
+        this.tamaño = null;
+        this.masa = null;
+        this.queso = null;
+        this.salsa = null;
+        this.cantidadSalsa = null;
+        this.deseaBebida = false;
+        this.tipoBebida = "";
+        this.tamañoBebida = "";
+        this.conHielo = false;
+    }
+
+    public void iniciarSistema() {
+        boolean continuarPidiendo = true;
+
+        while (continuarPidiendo) {
+            procesarPedido();  // Tu método existente
+            continuarPidiendo = preguntarNuevoPedido();
+
+            if (continuarPidiendo) {
+                reiniciarPedido();
+                System.out.println(""); // Línea en blanco para separar pedidos
+            }
+        }
+    }
+
     // Método principal que ejecuta todo el proceso de selección
     public void procesarPedido() {
         mostrarMenuPrincipal();        // Mostrar el menú de bienvenida
@@ -497,17 +569,17 @@ public class Menu {
         seleccionarQueso();            // Llamar al método para elegir queso
         seleccionarTipoSalsa();        // Llamar al método para elegir tipo de salsa
         seleccionarCantidadSalsa();    // Llamar al método para elegir cantidad de salsa
-        
+
         // ***** NUEVA FUNCIONALIDAD DE BEBIDAS *****
         preguntarSiDeseaBebida();      // Preguntar si quiere bebida
-        
+
         // Solo si el usuario quiere bebida, ejecutar los siguientes métodos
         if (this.deseaBebida) {
             seleccionarTipoBebida();    // Elegir tipo de bebida
             seleccionarTamañoBebida();  // Elegir tamaño de bebida
             preguntarSiConHielo();      // Preguntar si quiere hielo
         }
-        
+
         mostrarResumenPedido();        // Mostrar el resumen final del pedido
     }
 
@@ -516,14 +588,14 @@ public class Menu {
         System.out.println("===========================================");
         System.out.println("         RESUMEN DE TU PEDIDO             ");
         System.out.println("===========================================");
-        
+
         // Información de la pizza
         System.out.println("PIZZA:");
         System.out.println("- Tamaño: " + this.tamaño);                    // Mostrar tamaño elegido
         System.out.println("- Queso: " + this.queso);                      // Mostrar cantidad de queso
         System.out.println("- Salsa: " + this.salsa);                      // Mostrar tipo de salsa
         System.out.println("- Cantidad de salsa: " + this.cantidadSalsa);  // Mostrar cantidad de salsa
-        
+
         // Información de la bebida (solo si eligió bebida)
         if (this.deseaBebida) {
             System.out.println("");
@@ -540,7 +612,7 @@ public class Menu {
             System.out.println("");
             System.out.println("BEBIDA: No seleccionada");
         }
-        
+
         System.out.println("===========================================");
         System.out.println("¡Tu pedido está listo para preparar!");
         System.out.println("===========================================");
