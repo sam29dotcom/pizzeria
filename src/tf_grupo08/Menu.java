@@ -614,7 +614,7 @@ public class Menu {
         }
 
         System.out.println("===========================================");
-        System.out.println("¡Tu pedido está listo para preparar!");
+        System.out.println("¡Tu pedido esta listo para preparar!");
         System.out.println("===========================================");
     }
 }
