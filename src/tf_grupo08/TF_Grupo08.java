@@ -17,6 +17,6 @@ public class TF_Grupo08 {
         Menu oMenu = new Menu();
 
         // Ejecutar el proceso completo de selección de pizza
-        oMenu.iniciarSistema();
+        oMenu.iniciarSistema();      
     }
 }
