@@ -68,7 +68,7 @@ public class Facturacion {
         total = subtotal + impuesto;
 
         // Mostrar detalle de factura
-        System.out.println("========= FACTURA =========");
+        System.out.println("========= FACTURAA =========");
         System.out.printf("Pizza (%s): $%.2f\n", tamañoPizza, precioPizza);
 
         if (precioBebida > 0) {
