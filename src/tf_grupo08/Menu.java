@@ -591,30 +591,73 @@ public class Menu {
 
         // Información de la pizza
         System.out.println("PIZZA:");
-        System.out.println("- Tamaño: " + this.tamaño);                    // Mostrar tamaño elegido
-        System.out.println("- Queso: " + this.queso);                      // Mostrar cantidad de queso
-        System.out.println("- Salsa: " + this.salsa);                      // Mostrar tipo de salsa
-        System.out.println("- Cantidad de salsa: " + this.cantidadSalsa);  // Mostrar cantidad de salsa
+        System.out.println("- Tamaño: " + this.tamaño);
+        System.out.println("- Queso: " + this.queso);
+        System.out.println("- Salsa: " + this.salsa);
+        System.out.println("- Cantidad de salsa: " + this.cantidadSalsa);
 
-        // Información de la bebida (solo si eligió bebida)
+        // Información de la bebida
         if (this.deseaBebida) {
             System.out.println("");
             System.out.println("BEBIDA:");
-            System.out.println("- Tipo: " + this.tipoBebida);               // Mostrar tipo de bebida
-            System.out.println("- Tamaño: " + this.tamañoBebida);           // Mostrar tamaño de bebida
-            // Mostrar si quiere hielo o no
-            if (this.conHielo) {
-                System.out.println("- Con hielo: Sí");
-            } else {
-                System.out.println("- Con hielo: No");
-            }
+            System.out.println("- Tipo: " + this.tipoBebida);
+            System.out.println("- Tamaño: " + this.tamañoBebida);
+            System.out.println("- Con hielo: " + (this.conHielo ? "Sí" : "No"));
         } else {
             System.out.println("");
             System.out.println("BEBIDA: No seleccionada");
         }
 
         System.out.println("===========================================");
-        System.out.println("¡Tu pedido esta listo para preparar!");
-        System.out.println("===========================================");
+
+        // **NUEVA FUNCIONALIDAD: Generar factura**
+        generarFactura();
     }
+
+    public void generarFactura() {
+        Facturacion factura = new Facturacion();
+
+        // Convertir el tamaño de pizza para que coincida con Facturacion.java
+        String tamañoPizza = convertirTamañoPizza(this.tamaño);
+
+        if (this.deseaBebida) {
+            // Convertir tamaño de bebida a litros
+            int litrosBebida = convertirTamañoBebida(this.tamañoBebida);
+
+            // Generar factura con pizza y bebida
+            factura.generarFactura(tamañoPizza, this.tipoBebida, litrosBebida);
+        } else {
+            // Generar factura solo con pizza (sin bebida)
+            factura.generarFactura(tamañoPizza, "", 0);
+        }
+    }
+
+    // Método para convertir el tamaño de pizza a formato compatible con Facturacion
+    private String convertirTamañoPizza(String tamaño) {
+        return switch (tamaño.toLowerCase()) {
+            case "mediana" ->
+                "media";
+            case "grande" ->
+                "grande";
+            case "familiar" ->
+                "familiar";
+            default ->
+                "media";
+        };
+    }
+
+// Método para convertir el tamaño de bebida a litros
+    private int convertirTamañoBebida(String tamañoBebida) {
+        return switch (tamañoBebida.toLowerCase()) {
+            case "1 litro" ->
+                1;
+            case "2 litros" ->
+                2;
+            case "3 litros" ->
+                3;
+            default ->
+                0; // Para personal o sin bebida
+        };
+    }
+
 }

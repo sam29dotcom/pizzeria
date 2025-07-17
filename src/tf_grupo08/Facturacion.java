@@ -1,7 +1,7 @@
-
 package tf_grupo08;
+
 public class Facturacion {
-    
+
     private double precioPizza;
     private double precioBebida;
     private double impuesto;
@@ -10,10 +10,14 @@ public class Facturacion {
     // Métodos para obtener el precio de la pizza según tamaño
     public double obtenerPrecioPizza(String tamaño) {
         return switch (tamaño.toLowerCase()) {
-            case "media" -> 25;
-            case "grande" -> 30;
-            case "familiar" -> 40;
-            default -> 0;
+            case "media" ->
+                25;
+            case "grande" ->
+                30;
+            case "familiar" ->
+                40;
+            default ->
+                0;
         };
     }
 
@@ -51,7 +55,14 @@ public class Facturacion {
     // Calcular y mostrar factura
     public void generarFactura(String tamañoPizza, String marcaBebida, int litrosBebida) {
         precioPizza = obtenerPrecioPizza(tamañoPizza);
-        precioBebida = obtenerPrecioBebida(marcaBebida, litrosBebida);
+
+        // Solo calcular precio de bebida si se seleccionó una
+        if (!marcaBebida.isEmpty() && litrosBebida > 0) {
+            precioBebida = obtenerPrecioBebida(marcaBebida, litrosBebida);
+        } else {
+            precioBebida = 0;
+        }
+
         double subtotal = precioPizza + precioBebida;
         impuesto = subtotal * 0.18;
         total = subtotal + impuesto;
@@ -59,11 +70,14 @@ public class Facturacion {
         // Mostrar detalle de factura
         System.out.println("========= FACTURA =========");
         System.out.printf("Pizza (%s): $%.2f\n", tamañoPizza, precioPizza);
-        System.out.printf("Bebida: %s %dL: $%.2f\n", marcaBebida, litrosBebida, precioBebida);
+
+        if (precioBebida > 0) {
+            System.out.printf("Bebida: %s %dL: $%.2f\n", marcaBebida, litrosBebida, precioBebida);
+        }
+
         System.out.printf("Subtotal: $%.2f\n", subtotal);
         System.out.printf("Impuesto (18%%): $%.2f\n", impuesto);
         System.out.printf("Total a pagar: $%.2f\n", total);
         System.out.println("===========================");
     }
 }
-    
