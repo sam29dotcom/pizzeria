@@ -4,118 +4,108 @@ import java.util.Scanner;
 
 public class Menu {
 
-    // Atributos de la clase Menu para la pizza
-    private String tamaño;        // Almacena el tamaño elegido por el usuario
-    private String masa;          // Almacena el tipo de masa (mantenido por compatibilidad)
-    private String queso;         // Almacena la cantidad de queso elegida
-    private String salsa;         // Almacena el tipo de salsa elegida
-    private String cantidadSalsa; // Almacena la cantidad de salsa elegida
+    private String tamaño;
+    private String masa;
+    private String queso;
+    private String salsa;
+    private String cantidadSalsa;
+    private boolean deseaBebida;
+    private String tipoBebida;
+    private String tamañoBebida;
+    private boolean conHielo;
 
-    // NUEVOS ATRIBUTOS para las bebidas
-    private boolean deseaBebida;  // Almacena si el usuario quiere bebida (true = sí, false = no)
-    private String tipoBebida;    // Almacena el tipo de bebida elegida (Coca-Cola, Inka Kola, Fanta)
-    private String tamañoBebida;  // Almacena el tamaño de la bebida (personal, 1L, 2L, 3L)
-    private boolean conHielo;     // Almacena si quiere la bebida con hielo (true = sí, false = no)
-
-    // Constructor vacío - se usa cuando no pasamos parámetros
     public Menu() {
-        // Inicializar los nuevos atributos con valores por defecto
-        this.deseaBebida = false;   // Por defecto no quiere bebida
-        this.tipoBebida = "";       // Sin bebida seleccionada
-        this.tamañoBebida = "";     // Sin tamaño seleccionado
-        this.conHielo = false;      // Por defecto sin hielo
-    }
-
-    // Constructor con parámetros - se usa cuando ya tenemos los datos
-    public Menu(String tamaño, String masa, String queso, String salsa, String cantidadSalsa) {
-        this.tamaño = tamaño;           // Asigna el tamaño recibido
-        this.masa = masa;               // Asigna la masa recibida
-        this.queso = queso;             // Asigna el queso recibido
-        this.salsa = salsa;             // Asigna la salsa recibida
-        this.cantidadSalsa = cantidadSalsa; // Asigna la cantidad de salsa recibida
-
-        // Inicializar los nuevos atributos con valores por defecto
         this.deseaBebida = false;
         this.tipoBebida = "";
         this.tamañoBebida = "";
         this.conHielo = false;
     }
 
-    // Métodos getter y setter para cada atributo existente
+    public Menu(String tamaño, String masa, String queso, String salsa, String cantidadSalsa) {
+        this.tamaño = tamaño;
+        this.masa = masa;
+        this.queso = queso;
+        this.salsa = salsa;
+        this.cantidadSalsa = cantidadSalsa;
+        this.deseaBebida = false;
+        this.tipoBebida = "";
+        this.tamañoBebida = "";
+        this.conHielo = false;
+    }
+
+    // Getters y Setters
     public String getTamaño() {
-        return tamaño;  // Devuelve el tamaño actual
+        return tamaño;
     }
 
     public void setTamaño(String tamaño) {
-        this.tamaño = tamaño;  // Establece un nuevo tamaño
+        this.tamaño = tamaño;
     }
 
     public String getMasa() {
-        return masa;  // Devuelve la masa actual
+        return masa;
     }
 
     public void setMasa(String masa) {
-        this.masa = masa;  // Establece una nueva masa
+        this.masa = masa;
     }
 
     public String getQueso() {
-        return queso;  // Devuelve la cantidad de queso actual
+        return queso;
     }
 
     public void setQueso(String queso) {
-        this.queso = queso;  // Establece una nueva cantidad de queso
+        this.queso = queso;
     }
 
     public String getSalsa() {
-        return salsa;  // Devuelve el tipo de salsa actual
+        return salsa;
     }
 
     public void setSalsa(String salsa) {
-        this.salsa = salsa;  // Establece un nuevo tipo de salsa
+        this.salsa = salsa;
     }
 
     public String getCantidadSalsa() {
-        return cantidadSalsa;  // Devuelve la cantidad de salsa actual
+        return cantidadSalsa;
     }
 
     public void setCantidadSalsa(String cantidadSalsa) {
-        this.cantidadSalsa = cantidadSalsa;  // Establece una nueva cantidad de salsa
+        this.cantidadSalsa = cantidadSalsa;
     }
 
-    // NUEVOS MÉTODOS getter y setter para las bebidas
     public boolean isDeseaBebida() {
-        return deseaBebida;  // Devuelve si desea bebida
+        return deseaBebida;
     }
 
     public void setDeseaBebida(boolean deseaBebida) {
-        this.deseaBebida = deseaBebida;  // Establece si desea bebida
+        this.deseaBebida = deseaBebida;
     }
 
     public String getTipoBebida() {
-        return tipoBebida;  // Devuelve el tipo de bebida
+        return tipoBebida;
     }
 
     public void setTipoBebida(String tipoBebida) {
-        this.tipoBebida = tipoBebida;  // Establece el tipo de bebida
+        this.tipoBebida = tipoBebida;
     }
 
     public String getTamañoBebida() {
-        return tamañoBebida;  // Devuelve el tamaño de bebida
+        return tamañoBebida;
     }
 
     public void setTamañoBebida(String tamañoBebida) {
-        this.tamañoBebida = tamañoBebida;  // Establece el tamaño de bebida
+        this.tamañoBebida = tamañoBebida;
     }
 
     public boolean isConHielo() {
-        return conHielo;  // Devuelve si quiere con hielo
+        return conHielo;
     }
 
     public void setConHielo(boolean conHielo) {
-        this.conHielo = conHielo;  // Establece si quiere con hielo
+        this.conHielo = conHielo;
     }
 
-    // Método para mostrar el menú principal de opciones
     public void mostrarMenuPrincipal() {
         System.out.println("===========================================");
         System.out.println("      BIENVENIDO AL MENÚ DE PIZZAS        ");
@@ -124,415 +114,128 @@ public class Menu {
         System.out.println("");
     }
 
-    // Método para seleccionar el tamaño de la pizza
-    public void seleccionarTamaño() {
-        Scanner entrada = new Scanner(System.in);  // Crear objeto Scanner para leer entrada
-        int opcion;                                // Variable para almacenar la opción elegida
-        boolean valido = false;                    // Variable para controlar si la opción es válida
-
-        // Bucle que se repite hasta que el usuario ingrese una opción válida
-        do {
-            System.out.println("--- SELECCIÓN DE TAMAÑO ---");
-            System.out.println("1. Mediana");      // Opción 1
-            System.out.println("2. Grande");       // Opción 2
-            System.out.println("3. Familiar");     // Opción 3
-            System.out.print("Ingrese su opción (1-3): ");
-
-            // hasNextInt() revisa si lo que escribió el usuario es un número
-            // Si el usuario escribió un número, devuelve true
-            // Si el usuario escribió letras o símbolos, devuelve false
-            if (entrada.hasNextInt()) {
-                opcion = entrada.nextInt();        // Leer el número ingresado
-
-                // Evaluar la opción elegida
-                switch (opcion) {
-                    case 1 -> {
-                        this.tamaño = "Mediana";   // Asignar tamaño mediana
-                        System.out.println("Has elegido: Pizza Mediana");
-                        valido = true;             // Marcar como válido para salir del bucle
-                    }
-                    case 2 -> {
-                        this.tamaño = "Grande";    // Asignar tamaño grande
-                        System.out.println("Has elegido: Pizza Grande");
-                        valido = true;             // Marcar como válido para salir del bucle
-                    }
-                    case 3 -> {
-                        this.tamaño = "Familiar";  // Asignar tamaño familiar
-                        System.out.println("Has elegido: Pizza Familiar");
-                        valido = true;             // Marcar como válido para salir del bucle
-                    }
-                    default ->
-                        System.out.println("Error: Ingrese una opción válida (1, 2 o 3)");
-                }
-            } else {
-                // Si lo que escribió NO es un número, mostrar error
-                System.out.println("Error: Debe ingresar un número");
-                entrada.next(); // Limpiar lo que escribió para evitar problemas
-            }
-            System.out.println(""); // Línea en blanco para mejor presentación
-        } while (!valido); // Continuar mientras no sea válido
-    }
-
-    // Método para seleccionar la cantidad de queso
-    public void seleccionarQueso() {
-        Scanner entrada = new Scanner(System.in);  // Crear objeto Scanner para leer entrada
-        int opcion;                                // Variable para almacenar la opción elegida
-        boolean valido = false;                    // Variable para controlar si la opción es válida
-
-        // Bucle que se repite hasta que el usuario ingrese una opción válida
-        do {
-            System.out.println("--- SELECCIÓN DE QUESO ---");
-            System.out.println("1. Poco queso");     // Opción 1
-            System.out.println("2. Queso normal");   // Opción 2
-            System.out.println("3. Mucho queso");    // Opción 3
-            System.out.print("Ingrese su opción (1-3): ");
-
-            // hasNextInt() revisa si lo que escribió el usuario es un número
-            // Si el usuario escribió un número, devuelve true
-            // Si el usuario escribió letras o símbolos, devuelve false
-            if (entrada.hasNextInt()) {
-                opcion = entrada.nextInt();          // Leer el número ingresado
-
-                // Evaluar la opción elegida
-                switch (opcion) {
-                    case 1 -> {
-                        this.queso = "Poco";         // Asignar poco queso
-                        System.out.println("Has elegido: Poco queso");
-                        valido = true;               // Marcar como válido para salir del bucle
-                    }
-                    case 2 -> {
-                        this.queso = "Normal";       // Asignar queso normal
-                        System.out.println("Has elegido: Queso normal");
-                        valido = true;               // Marcar como válido para salir del bucle
-                    }
-                    case 3 -> {
-                        this.queso = "Mucho";        // Asignar mucho queso
-                        System.out.println("Has elegido: Mucho queso");
-                        valido = true;               // Marcar como válido para salir del bucle
-                    }
-                    default ->
-                        System.out.println("Error: Ingrese una opción válida (1, 2 o 3)");
-                }
-            } else {
-                // Si lo que escribió NO es un número, mostrar error
-                System.out.println("Error: Debe ingresar un número");
-                entrada.next(); // Limpiar lo que escribió para evitar problemas
-            }
-            System.out.println(""); // Línea en blanco para mejor presentación
-        } while (!valido); // Continuar mientras no sea válido
-    }
-
-    // Método para seleccionar el tipo de salsa
-    public void seleccionarTipoSalsa() {
-        Scanner entrada = new Scanner(System.in);  // Crear objeto Scanner para leer entrada
-        int opcion;                                // Variable para almacenar la opción elegida
-        boolean valido = false;                    // Variable para controlar si la opción es válida
-
-        // Bucle que se repite hasta que el usuario ingrese una opción válida
-        do {
-            System.out.println("--- SELECCIÓN DE SALSA ---");
-            System.out.println("1. Salsa de tomate natural");  // Opción 1
-            System.out.println("2. Salsa BBQ");                // Opción 2
-            System.out.print("Ingrese su opción (1-2): ");
-
-            // hasNextInt() revisa si lo que escribió el usuario es un número
-            // Si el usuario escribió un número, devuelve true
-            // Si el usuario escribió letras o símbolos, devuelve false
-            if (entrada.hasNextInt()) {
-                opcion = entrada.nextInt();                     // Leer el número ingresado
-
-                // Evaluar la opción elegida
-                switch (opcion) {
-                    case 1 -> {
-                        this.salsa = "Tomate natural";          // Asignar salsa de tomate
-                        System.out.println("Has elegido: Salsa de tomate natural");
-                        valido = true;                          // Marcar como válido para salir del bucle
-                    }
-                    case 2 -> {
-                        this.salsa = "BBQ";                     // Asignar salsa BBQ
-                        System.out.println("Has elegido: Salsa BBQ");
-                        valido = true;                          // Marcar como válido para salir del bucle
-                    }
-                    default ->
-                        System.out.println("Error: Ingrese una opción válida (1 o 2)");
-                }
-            } else {
-                // Si lo que escribió NO es un número, mostrar error
-                System.out.println("Error: Debe ingresar un número");
-                entrada.next(); // Limpiar lo que escribió para evitar problemas
-            }
-            System.out.println(""); // Línea en blanco para mejor presentación
-        } while (!valido); // Continuar mientras no sea válido
-    }
-
-    // Método para seleccionar la cantidad de salsa
-    public void seleccionarCantidadSalsa() {
-        Scanner entrada = new Scanner(System.in);  // Crear objeto Scanner para leer entrada
-        int opcion;                                // Variable para almacenar la opción elegida
-        boolean valido = false;                    // Variable para controlar si la opción es válida
-
-        // Bucle que se repite hasta que el usuario ingrese una opción válida
-        do {
-            System.out.println("--- CANTIDAD DE SALSA ---");
-            System.out.println("1. Poca salsa");      // Opción 1
-            System.out.println("2. Salsa normal");    // Opción 2
-            System.out.println("3. Mucha salsa");     // Opción 3
-            System.out.print("Ingrese su opción (1-3): ");
-
-            // hasNextInt() revisa si lo que escribió el usuario es un número
-            // Si el usuario escribió un número, devuelve true
-            // Si el usuario escribió letras o símbolos, devuelve false
-            if (entrada.hasNextInt()) {
-                opcion = entrada.nextInt();           // Leer el número ingresado
-
-                // Evaluar la opción elegida
-                switch (opcion) {
-                    case 1 -> {
-                        this.cantidadSalsa = "Poca";  // Asignar poca salsa
-                        System.out.println("Has elegido: Poca salsa");
-                        valido = true;                // Marcar como válido para salir del bucle
-                    }
-                    case 2 -> {
-                        this.cantidadSalsa = "Normal"; // Asignar salsa normal
-                        System.out.println("Has elegido: Salsa normal");
-                        valido = true;                // Marcar como válido para salir del bucle
-                    }
-                    case 3 -> {
-                        this.cantidadSalsa = "Mucha"; // Asignar mucha salsa
-                        System.out.println("Has elegido: Mucha salsa");
-                        valido = true;                // Marcar como válido para salir del bucle
-                    }
-                    default ->
-                        System.out.println("Error: Ingrese una opción válida (1, 2 o 3)");
-                }
-            } else {
-                // Si lo que escribió NO es un número, mostrar error
-                System.out.println("Error: Debe ingresar un número");
-                entrada.next(); // Limpiar lo que escribió para evitar problemas
-            }
-            System.out.println(""); // Línea en blanco para mejor presentación
-        } while (!valido); // Continuar mientras no sea válido
-    }
-
-    // ***** NUEVOS MÉTODOS PARA LA FUNCIONALIDAD DE BEBIDAS *****
-    // Método para preguntar si el usuario desea alguna bebida
-    public void preguntarSiDeseaBebida() {
-        Scanner entrada = new Scanner(System.in);  // Crear objeto Scanner para leer entrada
-        int opcion;                                // Variable para almacenar la opción elegida
-        boolean valido = false;                    // Variable para controlar si la opción es válida
-
-        // Bucle que se repite hasta que el usuario ingrese una opción válida
-        do {
-            System.out.println("--- ¿DESEA ALGUNA BEBIDA? ---");
-            System.out.println("1. Sí");         // Opción 1 - Sí quiere bebida
-            System.out.println("2. No");         // Opción 2 - No quiere bebida
-            System.out.print("Ingrese su opción (1-2): ");
-
-            // hasNextInt() revisa si lo que escribió el usuario es un número
-            if (entrada.hasNextInt()) {
-                opcion = entrada.nextInt();       // Leer el número ingresado
-
-                // Evaluar la opción elegida
-                switch (opcion) {
-                    case 1 -> {
-                        this.deseaBebida = true;  // El usuario SÍ quiere bebida
-                        System.out.println("¡Perfecto! Vamos a elegir tu bebida");
-                        valido = true;            // Marcar como válido para salir del bucle
-                    }
-                    case 2 -> {
-                        this.deseaBebida = false; // El usuario NO quiere bebida
-                        System.out.println("De acuerdo, solo será la pizza");
-                        valido = true;            // Marcar como válido para salir del bucle
-                    }
-                    default ->
-                        System.out.println("Error: Ingrese una opción válida (1 o 2)");
-                }
-            } else {
-                // Si lo que escribió NO es un número, mostrar error
-                System.out.println("Error: Debe ingresar un número");
-                entrada.next(); // Limpiar lo que escribió para evitar problemas
-            }
-            System.out.println(""); // Línea en blanco para mejor presentación
-        } while (!valido); // Continuar mientras no sea válido
-    }
-
-    // Método para seleccionar el tipo de bebida (solo se ejecuta si deseaBebida = true)
-    public void seleccionarTipoBebida() {
-        Scanner entrada = new Scanner(System.in);  // Crear objeto Scanner para leer entrada
-        int opcion;                                // Variable para almacenar la opción elegida
-        boolean valido = false;                    // Variable para controlar si la opción es válida
-
-        // Bucle que se repite hasta que el usuario ingrese una opción válida
-        do {
-            System.out.println("--- SELECCIÓN DE BEBIDA ---");
-            System.out.println("1. Coca-Cola");     // Opción 1
-            System.out.println("2. Inka Kola");     // Opción 2
-            System.out.println("3. Fanta");         // Opción 3
-            System.out.print("Ingrese su opción (1-3): ");
-
-            // hasNextInt() revisa si lo que escribió el usuario es un número
-            if (entrada.hasNextInt()) {
-                opcion = entrada.nextInt();          // Leer el número ingresado
-
-                // Evaluar la opción elegida
-                switch (opcion) {
-                    case 1 -> {
-                        this.tipoBebida = "Coca-Cola";  // Asignar Coca-Cola
-                        System.out.println("Has elegido: Coca-Cola");
-                        valido = true;                  // Marcar como válido para salir del bucle
-                    }
-                    case 2 -> {
-                        this.tipoBebida = "Inka Kola";  // Asignar Inka Kola
-                        System.out.println("Has elegido: Inka Kola");
-                        valido = true;                  // Marcar como válido para salir del bucle
-                    }
-                    case 3 -> {
-                        this.tipoBebida = "Fanta";      // Asignar Fanta
-                        System.out.println("Has elegido: Fanta");
-                        valido = true;                  // Marcar como válido para salir del bucle
-                    }
-                    default ->
-                        System.out.println("Error: Ingrese una opción válida (1, 2 o 3)");
-                }
-            } else {
-                // Si lo que escribió NO es un número, mostrar error
-                System.out.println("Error: Debe ingresar un número");
-                entrada.next(); // Limpiar lo que escribió para evitar problemas
-            }
-            System.out.println(""); // Línea en blanco para mejor presentación
-        } while (!valido); // Continuar mientras no sea válido
-    }
-
-    // Método para seleccionar el tamaño de la bebida
-    public void seleccionarTamañoBebida() {
-        Scanner entrada = new Scanner(System.in);  // Crear objeto Scanner para leer entrada
-        int opcion;                                // Variable para almacenar la opción elegida
-        boolean valido = false;                    // Variable para controlar si la opción es válida
-
-        // Bucle que se repite hasta que el usuario ingrese una opción válida
-        do {
-            System.out.println("--- TAMAÑO DE BEBIDA ---");
-            System.out.println("1. Personal");      // Opción 1
-            System.out.println("2. 1 litro");       // Opción 2
-            System.out.println("3. 2 litros");      // Opción 3
-            System.out.println("4. 3 litros");      // Opción 4
-            System.out.print("Ingrese su opción (1-4): ");
-
-            // hasNextInt() revisa si lo que escribió el usuario es un número
-            if (entrada.hasNextInt()) {
-                opcion = entrada.nextInt();          // Leer el número ingresado
-
-                // Evaluar la opción elegida
-                switch (opcion) {
-                    case 1 -> {
-                        this.tamañoBebida = "Personal";  // Asignar tamaño personal
-                        System.out.println("Has elegido: Tamaño Personal");
-                        valido = true;                   // Marcar como válido para salir del bucle
-                    }
-                    case 2 -> {
-                        this.tamañoBebida = "1 litro";   // Asignar 1 litro
-                        System.out.println("Has elegido: 1 litro");
-                        valido = true;                   // Marcar como válido para salir del bucle
-                    }
-                    case 3 -> {
-                        this.tamañoBebida = "2 litros";  // Asignar 2 litros
-                        System.out.println("Has elegido: 2 litros");
-                        valido = true;                   // Marcar como válido para salir del bucle
-                    }
-                    case 4 -> {
-                        this.tamañoBebida = "3 litros";  // Asignar 3 litros
-                        System.out.println("Has elegido: 3 litros");
-                        valido = true;                   // Marcar como válido para salir del bucle
-                    }
-                    default ->
-                        System.out.println("Error: Ingrese una opción válida (1, 2, 3 o 4)");
-                }
-            } else {
-                // Si lo que escribió NO es un número, mostrar error
-                System.out.println("Error: Debe ingresar un número");
-                entrada.next(); // Limpiar lo que escribió para evitar problemas
-            }
-            System.out.println(""); // Línea en blanco para mejor presentación
-        } while (!valido); // Continuar mientras no sea válido
-    }
-
-    // Método para preguntar si quiere la bebida con hielo
-    public void preguntarSiConHielo() {
-        Scanner entrada = new Scanner(System.in);  // Crear objeto Scanner para leer entrada
-        int opcion;                                // Variable para almacenar la opción elegida
-        boolean valido = false;                    // Variable para controlar si la opción es válida
-
-        // Bucle que se repite hasta que el usuario ingrese una opción válida
-        do {
-            System.out.println("--- ¿DESEA SU BEBIDA CON HIELO? ---");
-            System.out.println("1. Sí");         // Opción 1 - Sí quiere hielo
-            System.out.println("2. No");         // Opción 2 - No quiere hielo
-            System.out.print("Ingrese su opción (1-2): ");
-
-            // hasNextInt() revisa si lo que escribió el usuario es un número
-            if (entrada.hasNextInt()) {
-                opcion = entrada.nextInt();       // Leer el número ingresado
-
-                // Evaluar la opción elegida
-                switch (opcion) {
-                    case 1 -> {
-                        this.conHielo = true;     // El usuario SÍ quiere hielo
-                        System.out.println("Perfecto, su bebida será servida con hielo");
-                        valido = true;            // Marcar como válido para salir del bucle
-                    }
-                    case 2 -> {
-                        this.conHielo = false;    // El usuario NO quiere hielo
-                        System.out.println("De acuerdo, su bebida será servida sin hielo");
-                        valido = true;            // Marcar como válido para salir del bucle
-                    }
-                    default ->
-                        System.out.println("Error: Ingrese una opción válida (1 o 2)");
-                }
-            } else {
-                // Si lo que escribió NO es un número, mostrar error
-                System.out.println("Error: Debe ingresar un número");
-                entrada.next(); // Limpiar lo que escribió para evitar problemas
-            }
-            System.out.println(""); // Línea en blanco para mejor presentación
-        } while (!valido); // Continuar mientras no sea válido
-    }
-
-    public boolean preguntarNuevoPedido() {
-        Scanner entrada = new Scanner(System.in);
+    private int leerOpcion(Scanner entrada, int min, int max) {
         int opcion;
-        boolean valido = false;
-        boolean nuevoPedido = false;
-
-        do {
-            System.out.println("--- ¿QUIERES HACER UN NUEVO PEDIDO? ---");
-            System.out.println("1. Sí");
-            System.out.println("2. No");
-            System.out.print("Ingrese su opción (1-2): ");
-
+        while (true) {
             if (entrada.hasNextInt()) {
                 opcion = entrada.nextInt();
-
-                switch (opcion) {
-                    case 1 -> {
-                        nuevoPedido = true;
-                        System.out.println("¡Perfecto! Vamos a crear un nuevo pedido");
-                        valido = true;
-                    }
-                    case 2 -> {
-                        nuevoPedido = false;
-                        System.out.println("¡Gracias por tu compra! ¡Hasta pronto!");
-                        valido = true;
-                    }
-                    default ->
-                        System.out.println("Error: Ingrese una opción válida (1 o 2)");
+                if (opcion >= min && opcion <= max) {
+                    return opcion;
+                } else {
+                    System.out.printf("Error: Ingrese una opción válida (%d-%d): ", min, max);
                 }
             } else {
                 System.out.println("Error: Debe ingresar un número");
                 entrada.next();
             }
-            System.out.println("");
-        } while (!valido);
+        }
+    }
 
+    public void seleccionarTamaño() {
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("--- SELECCIÓN DE TAMAÑO ---");
+        System.out.println("1. Mediana\n2. Grande\n3. Familiar");
+        System.out.print("Ingrese su opción (1-3): ");
+
+        int opcion = leerOpcion(entrada, 1, 3);
+        String[] tamaños = {"", "Mediana", "Grande", "Familiar"};
+        this.tamaño = tamaños[opcion];
+        System.out.println("Has elegido: Pizza " + this.tamaño + "\n");
+    }
+
+    public void seleccionarQueso() {
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("--- SELECCIÓN DE QUESO ---");
+        System.out.println("1. Poco queso\n2. Queso normal\n3. Mucho queso");
+        System.out.print("Ingrese su opción (1-3): ");
+
+        int opcion = leerOpcion(entrada, 1, 3);
+        String[] quesos = {"", "Poco", "Normal", "Mucho"};
+        this.queso = quesos[opcion];
+        System.out.println("Has elegido: " + (opcion == 2 ? "Queso normal" : quesos[opcion] + " queso") + "\n");
+    }
+
+    public void seleccionarTipoSalsa() {
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("--- SELECCIÓN DE SALSA ---");
+        System.out.println("1. Salsa de tomate natural\n2. Salsa BBQ");
+        System.out.print("Ingrese su opción (1-2): ");
+
+        int opcion = leerOpcion(entrada, 1, 2);
+        this.salsa = (opcion == 1) ? "Tomate natural" : "BBQ";
+        System.out.println("Has elegido: Salsa " + (opcion == 1 ? "de tomate natural" : "BBQ") + "\n");
+    }
+
+    public void seleccionarCantidadSalsa() {
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("--- CANTIDAD DE SALSA ---");
+        System.out.println("1. Poca salsa\n2. Salsa normal\n3. Mucha salsa");
+        System.out.print("Ingrese su opción (1-3): ");
+
+        int opcion = leerOpcion(entrada, 1, 3);
+        String[] cantidades = {"", "Poca", "Normal", "Mucha"};
+        this.cantidadSalsa = cantidades[opcion];
+        System.out.println("Has elegido: " + cantidades[opcion] + " salsa\n");
+    }
+
+    public void preguntarSiDeseaBebida() {
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("--- ¿DESEA ALGUNA BEBIDA? ---");
+        System.out.println("1. Sí\n2. No");
+        System.out.print("Ingrese su opción (1-2): ");
+
+        int opcion = leerOpcion(entrada, 1, 2);
+        this.deseaBebida = (opcion == 1);
+        System.out.println(deseaBebida ? "¡Perfecto! Vamos a elegir tu bebida" : "De acuerdo, solo será la pizza");
+        System.out.println("");
+    }
+
+    public void seleccionarTipoBebida() {
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("--- SELECCIÓN DE BEBIDA ---");
+        System.out.println("1. Coca-Cola\n2. Inka Kola\n3. Fanta");
+        System.out.print("Ingrese su opción (1-3): ");
+
+        int opcion = leerOpcion(entrada, 1, 3);
+        String[] bebidas = {"", "Coca-Cola", "Inka Kola", "Fanta"};
+        this.tipoBebida = bebidas[opcion];
+        System.out.println("Has elegido: " + this.tipoBebida + "\n");
+    }
+
+    public void seleccionarTamañoBebida() {
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("--- TAMAÑO DE BEBIDA ---");
+        System.out.println("1. Personal\n2. 1 litro\n3. 2 litros\n4. 3 litros");
+        System.out.print("Ingrese su opción (1-4): ");
+
+        int opcion = leerOpcion(entrada, 1, 4);
+        String[] tamaños = {"", "Personal", "1 litro", "2 litros", "3 litros"};
+        this.tamañoBebida = tamaños[opcion];
+        System.out.println("Has elegido: " + (opcion == 1 ? "Tamaño Personal" : this.tamañoBebida) + "\n");
+    }
+
+    public void preguntarSiConHielo() {
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("--- ¿DESEA SU BEBIDA CON HIELO? ---");
+        System.out.println("1. Sí\n2. No");
+        System.out.print("Ingrese su opción (1-2): ");
+
+        int opcion = leerOpcion(entrada, 1, 2);
+        this.conHielo = (opcion == 1);
+        System.out.println(conHielo ? "Perfecto, su bebida será servida con hielo" : "De acuerdo, su bebida será servida sin hielo");
+        System.out.println("");
+    }
+
+    public boolean preguntarNuevoPedido() {
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("--- ¿QUIERES HACER UN NUEVO PEDIDO? ---");
+        System.out.println("1. Sí\n2. No");
+        System.out.print("Ingrese su opción (1-2): ");
+
+        int opcion = leerOpcion(entrada, 1, 2);
+        boolean nuevoPedido = (opcion == 1);
+        System.out.println(nuevoPedido ? "¡Perfecto! Vamos a crear un nuevo pedido" : "¡Gracias por tu compra! ¡Hasta pronto!");
+        System.out.println("");
         return nuevoPedido;
     }
 
@@ -550,89 +253,68 @@ public class Menu {
 
     public void iniciarSistema() {
         boolean continuarPidiendo = true;
-
         while (continuarPidiendo) {
-            procesarPedido();  // Tu método existente
+            procesarPedido();
             continuarPidiendo = preguntarNuevoPedido();
-
             if (continuarPidiendo) {
                 reiniciarPedido();
-                System.out.println(""); // Línea en blanco para separar pedidos
+                System.out.println("");
             }
         }
     }
 
-    // Método principal que ejecuta todo el proceso de selección
     public void procesarPedido() {
-        mostrarMenuPrincipal();        // Mostrar el menú de bienvenida
-        seleccionarTamaño();           // Llamar al método para elegir tamaño
-        seleccionarQueso();            // Llamar al método para elegir queso
-        seleccionarTipoSalsa();        // Llamar al método para elegir tipo de salsa
-        seleccionarCantidadSalsa();    // Llamar al método para elegir cantidad de salsa
+        mostrarMenuPrincipal();
+        seleccionarTamaño();
+        seleccionarQueso();
+        seleccionarTipoSalsa();
+        seleccionarCantidadSalsa();
+        preguntarSiDeseaBebida();
 
-        // ***** NUEVA FUNCIONALIDAD DE BEBIDAS *****
-        preguntarSiDeseaBebida();      // Preguntar si quiere bebida
-
-        // Solo si el usuario quiere bebida, ejecutar los siguientes métodos
         if (this.deseaBebida) {
-            seleccionarTipoBebida();    // Elegir tipo de bebida
-            seleccionarTamañoBebida();  // Elegir tamaño de bebida
-            preguntarSiConHielo();      // Preguntar si quiere hielo
+            seleccionarTipoBebida();
+            seleccionarTamañoBebida();
+            preguntarSiConHielo();
         }
 
-        mostrarResumenPedido();        // Mostrar el resumen final del pedido
+        mostrarResumenPedido();
     }
 
-    // Método para mostrar el resumen del pedido creado (MODIFICADO)
     public void mostrarResumenPedido() {
         System.out.println("===========================================");
         System.out.println("         RESUMEN DE TU PEDIDO             ");
         System.out.println("===========================================");
-
-        // Información de la pizza
         System.out.println("PIZZA:");
         System.out.println("- Tamaño: " + this.tamaño);
         System.out.println("- Queso: " + this.queso);
         System.out.println("- Salsa: " + this.salsa);
         System.out.println("- Cantidad de salsa: " + this.cantidadSalsa);
 
-        // Información de la bebida
         if (this.deseaBebida) {
-            System.out.println("");
-            System.out.println("BEBIDA:");
+            System.out.println("\nBEBIDA:");
             System.out.println("- Tipo: " + this.tipoBebida);
             System.out.println("- Tamaño: " + this.tamañoBebida);
             System.out.println("- Con hielo: " + (this.conHielo ? "Sí" : "No"));
         } else {
-            System.out.println("");
-            System.out.println("BEBIDA: No seleccionada");
+            System.out.println("\nBEBIDA: No seleccionada");
         }
 
         System.out.println("===========================================");
-
-        // **NUEVA FUNCIONALIDAD: Generar factura**
         generarFactura();
     }
 
     public void generarFactura() {
         Facturacion factura = new Facturacion();
-
-        // Convertir el tamaño de pizza para que coincida con Facturacion.java
         String tamañoPizza = convertirTamañoPizza(this.tamaño);
 
         if (this.deseaBebida) {
-            // Convertir tamaño de bebida a litros
             int litrosBebida = convertirTamañoBebida(this.tamañoBebida);
-
-            // Generar factura con pizza y bebida
             factura.generarFactura(tamañoPizza, this.tipoBebida, litrosBebida);
         } else {
-            // Generar factura solo con pizza (sin bebida)
             factura.generarFactura(tamañoPizza, "", 0);
         }
     }
 
-    // Método para convertir el tamaño de pizza a formato compatible con Facturacion
     private String convertirTamañoPizza(String tamaño) {
         return switch (tamaño.toLowerCase()) {
             case "mediana" ->
@@ -646,7 +328,6 @@ public class Menu {
         };
     }
 
-// Método para convertir el tamaño de bebida a litros
     private int convertirTamañoBebida(String tamañoBebida) {
         return switch (tamañoBebida.toLowerCase()) {
             case "1 litro" ->
@@ -656,8 +337,7 @@ public class Menu {
             case "3 litros" ->
                 3;
             default ->
-                0; // Para personal o sin bebida
+                0;
         };
     }
-
 }

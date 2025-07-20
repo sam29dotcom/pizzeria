@@ -191,8 +191,6 @@ public class Usuario {
 
         // Mostrar resumen completo de todos los datos del usuario
         mostrarResumenUsuario();
-
-        System.out.println("***** REGISTRO COMPLETADO CON ÉXITO *****");
     }
 
 //Método #8 - NUEVO: Mostrar resumen completo de datos del usuario
